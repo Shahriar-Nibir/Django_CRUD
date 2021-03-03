@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% extends 'home.html' %}
+    {% block content %}
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-body">
+                <form action="" method="POST">
+                    <h3>Customer: {{customer}}</h3>
+                    <hr>
+                    {% csrf_token %}
+                    {{ form.management_form }}
+                    {% for field in form %}
+                    {{field}}
+                    <hr>
+                    {% endfor %}
+                    <input type="submit" name="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
+</body>
+
+</html>
